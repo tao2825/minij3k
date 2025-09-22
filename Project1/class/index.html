@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard การเรียนพิเศษ</title>
+  <!-- ฟอนต์จาก Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Prompt", sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f8f9fa, #eef1f7);
+      color: #333;
+    }
+
+    /* ========== NAVBAR ========== */
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #2575fc;
+      color: #fff;
+    }
+    nav a.active {
+      background: linear-gradient(135deg, #2575fc, #6a11cb);
+      color: #fff;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 12px;
+      opacity: 0.95;
+    }
+
+    /* ========== CONTENT ========== */
+    .container {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+      animation: fadeInUp 1.2s ease;
+    }
+    h2 {
+      color: #444;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0px 12px 25px rgba(0,0,0,0.15);
+    }
+
+    /* ========== SCHEDULE GRID ========== */
+    .schedule {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .schedule-item {
+      background: linear-gradient(135deg, #ffffff, #f9faff);
+      padding: 25px 20px;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid #e0e0e0;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+    }
+    .schedule-item h3 {
+      margin-top: 0;
+      color: #2575fc;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+    .schedule-item p {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: #555;
+    }
+    .schedule-item:hover {
+      background: linear-gradient(135deg, #eaf1ff, #ffffff);
+      transform: translateY(-8px);
+      border-color: #2575fc;
+      box-shadow: 0px 8px 20px rgba(37,117,252,0.2);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #222;
+      color: white;
+      margin-top: 40px;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- เมนูนำทาง -->
+  <nav>
+    <a href="index.html">หน้าหลัก</a>
+    <a href="dashboard.php">เลือกเวลาเรียน</a>
+    <a href="members.php">สมาชิก</a>
+    <a href="login_members.php">เข้าสู่ระบบ</a>
+    <a href="register.php">สมัครสมาชิก</a>
+    <a href="logout.php">ออกจากระบบ</a>
+  </nav>
+
+  <header>
+    <h1>📚 การเรียนพิเศษ</h1>
+    <p>เลือกเวลาเรียนที่คุณต้องการ</p>
+  </header>
+
+  <div class="container">
+    <!-- ตารางเรียน -->
+    <div class="card">
+      <h2>วิชาที่เปิดสอน</h2>
+      <div class="schedule">
+        <div class="schedule-item">
+          <h3>คณิตศาสตร์</h3>
+          <p>ครูผู้สอน: ครูกี ลีลาดี</p>
+        </div>
+        <div class="schedule-item">
+          <h3>วิทยาศาสตร์</h3>
+          <p>ครูผู้สอน: ครูหมี ใหญ่ยาว</p>
+        </div>
+        <div class="schedule-item">
+          <h3>ภาษาอังกฤษ</h3>
+          <p>ครูผู้สอน: ครูมาร์ค สปีคดี</p>
+        </div>
+        <div class="schedule-item">
+          <h3>ประวัติศาสตร์</h3>
+          <p>ครูผู้สอน: ครูโชคชัย ไมค์พิรมพร</p>
+        </div>
+        <div class="schedule-item">
+          <h3>ภาษาไทย</h3>
+          <p>ครูผู้สอน: ครูสมชาย พิรมพร</p>
+        </div>
+        <div class="schedule-item">
+          <h3>เทคโนโลยีสารสนเทศ</h3>
+          <p>ครูผู้สอน: ครูสมหมาย จิตใจ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 ระบบการเรียนพิเศษ | ❤️ พัฒนาโดยทีมงาน IT ปี2</p>
+  </footer>
+
+</body>
+</html>
